@@ -30,3 +30,4 @@ gmap+geom_point(data = df, # 원그리기
                  axis.title.y = element_blank(),
                  axis.text.y = element_blank(),
                  axis.ticks.y = element_blank())
+

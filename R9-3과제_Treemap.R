@@ -7,6 +7,7 @@ library(ggmap)
 library(ggplot2)
 library(treemap)
 data(GNI2014)
+register_google(key = 'AIzaSyDhEDE1TNVNPWmRjgTClt9RM5tAjydGWtc')
 
 gc <- geocode("Europe")
 cen <- as.numeric(gc)
