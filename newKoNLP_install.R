@@ -1,0 +1,12 @@
+install.packages('rJava')
+install.packages('hash')
+
+install.packages('tau')
+install.packages('Sejong')
+install.packages('RSQLite')
+install.packages('stringr')
+install.packages('devtools')
+install.packages('https://cran.r-project.org/src/contrib/Archive/KoNLP/KoNLP_0.80.2.tar.gz', repos=NULL, type='source', INSTALL_opts = c('--no-lock'))
+install.packages("vctrs")
+# install.packages("KoNLP_dic")
+install.packages("colorspace")
