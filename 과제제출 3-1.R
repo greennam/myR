@@ -2,15 +2,17 @@
 m <- c(10, 40, 60, 20)
 f <- c(21, 60, 70, 30)
 score <- cbind(m,f)
+score
 
 # Change column name
 colnames(score) <- c("male", "female")
+score
 
-# Show 2nd row
+# 2행에 있는 모든 값을 보이시오.
 score[2,]
 
-# Show female column
+# female 의 모든 값을 보이시오.
 score[,"female"]
 
-# show 3 row, 2 col
+# 3행 2열의 값을 보이시오.
 score[3,2]
