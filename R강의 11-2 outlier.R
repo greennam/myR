@@ -12,4 +12,5 @@ boxplot.stats(st$Income)$out #show value of outlier
 out.val <- boxplot.stats(st$Income)$out # pick up outlier
 st$Income[st$Income %in% out.val] <- NA
 st$Income # Outlier value is replaced with NA
+
 new.data <- st[complete.cases(st),] # NA 제외하고 자료수집 함 

@@ -16,5 +16,16 @@ boxplot(st$Population, st$Income, xlab = "Population, Income", outline = T)
 boxplot(st$Area, xlab = "Area", outline = T)
 
 # 2. 이상치가 존재하는 경우 이상치를 NA 로 저장하시오.
-out.val <- boxplot.stats(st$Income)$out # pick up outlier
-st$Income[st$Income %in% out.val] <- NA
+income.out.val <- boxplot.stats(st$Income)$out # pick up outlier
+st$Income[st$Income %in% income.out.val] <- NA
+
+pop.out.val <- boxplot.stats(st$Population)$out
+st$Population[st$Population %in% pop.out.val] <- NA
+
+area.out.val <- boxplot.stats(st$Area)$out
+st$Area[st$Area %in% area.out.val] <- NA
+
+# 3. st 에서 NA 가 존재하는 행들을 제거하여 st2 에 저장하시오.
+st2 <- st[complete.cases(st),]
+
+dim(st)-dim(st2)
