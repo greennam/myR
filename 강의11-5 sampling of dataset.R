@@ -4,7 +4,7 @@ x <- 1:100
 
 y <- sample(x, size = 10, replace = F) # 비복원추출
 
-idx <- sample(nrow(iris), size = 50, replace = F)
+idx <- sample(1:nrow(iris), size = 50, replace = F)
 idx
 iris.50 <- iris[idx,]
 head(iris.50)

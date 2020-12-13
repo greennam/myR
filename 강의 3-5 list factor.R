@@ -19,23 +19,23 @@ member$address
 #_____________________
 # factor : 문자형 변수 (숫자는 안됨). 
 # 특정 종류의 값만 가질수 있는 데이터 타입 (예: 혈액형)
-blood.type <- factor(c('A', 'A', 'AB', 'O', 'B'))
-blood.type
-is.factor(blood.type)
-blood.type[6] <- 'C' # 에러 나옴. 
+blood.factor <- factor(c('A', 'A', 'AB', 'O', 'B'))
+blood.factor
+is.factor(blood.factor)
+blood.factor[6] <- 'C' # 에러 나옴. 
 
 # vector는 따움표 있다. List는 따움표 없고, Levels 있음
 blood.vector <- c('A', 'A', 'AB', 'O', 'B')
 blood.vector
 
 # factor는 label 순서대로 숫자로 변환할 수 있다
-blood.type
-as.numeric(blood.type)
+blood.factor
+as.numeric(blood.factor)
 
 # read.csv로 파일 읽으면 "문자열 column은 factor"로 저장된다 
 
 # Levels를 알고 싶으면
-levels(blood.type)
+levels(blood.factor)
 
 # 숫자의 level을 알고 싶으면. 3 rd ?
-levels(blood.type)[3]
+levels(blood.factor)[3]
