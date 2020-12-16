@@ -29,3 +29,4 @@ attach(mtcars)
 agg <- aggregate(mtcars, 
                  by=list(vs = vs, cyl = cyl),
                  FUN=max); agg
+detach(mtcars)
