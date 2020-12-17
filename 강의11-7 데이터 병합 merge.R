@@ -3,8 +3,8 @@ y <- data.frame(name=c('a', 'b', 'd'), korean=c(75,60, 90))
 
 merge(x, y, by=c('name')) #  공통
 merge(x, y, by=c('name'), all.x = T) # left
-merge(x, y, by=c('name'), all.y = T)
-merge(x, y, by=c('name'), all = T)
+merge(x, y, by=c('name'), all.y = T) # right merge
+merge(x, y, by=c('name'), all = T) # all merge
 
 c <- data.frame(name=c('a', 'b', 'c'), math=c(90,80, 40))
 d <- data.frame(pp=c('a', 'b', 'd'), korean=c(75,60, 90))
