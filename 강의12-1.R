@@ -29,3 +29,16 @@ unique(format(subway2[, "income_date"], "%Y"))
 # show name of subway in subway_latlong
 subway[, "stat_name"] %>% unique %>% sort
 #sort(unique(subway[, 'stat_name']))
+
+
+# 역순
+df3 <- df2[order(-df2$on_tot),]
+df3 <- df3[1:10,]
+
+# top 10 station
+ten.station <- df3#stat_name
+
+# 2013 year data
+tmp <- subset(subway2.subset = stat_name %in%
+                ten.station & year == "2013",
+              )
