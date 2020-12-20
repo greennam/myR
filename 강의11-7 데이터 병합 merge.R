@@ -15,5 +15,6 @@ merge(c, d, by.x=c('name'), by.y=c("pp"), all.x = T) # by.c 아니고 by.x
 
 x <- data.frame(name=c('a', 'b', 'c'), math=c(90,80, 40))
 y <- data.frame(pp=c('a', 'b', 'd'), korean=c(75,60, 90))
-merge(x,y,by.x = c("name"), by.y = c("pp"))
+# If column name is difference, use by.x & by.y to match colname
+merge(x,y,by.x = c("name"), by.y = c("pp")) # 
 
