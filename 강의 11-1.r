@@ -2,15 +2,18 @@
 # sum (x) : x
 # sum (x, na.rm=T) # remove the missing value
 x <- c(1, 2, 3, NA, 5, 8)
-sum(x)
-sum(x, na.rm = T)
+sum(x) # result is NA, error 
+sum(x, na.rm = T) # ignore NA. NA, missing value be removed
 
 is.na(x)
-sum(is.na(x)) # qty of na
+sum(is.na(x)) # qty of na. Like as sum(0,0,0,1,0,0)
 
 z <- c(1,2,3,NA, 5, NA, 8)
 
-z[is.na(z)] <- 0 # substitute
+z[is.na(z)] <- 0 # substitute 0 into NA
+
+z <- c(1,2,3,NA, 5, NA, 8)
+z[is.na(z)] <- 22 # substitute 22 into NA
 
 z <- c(1,2,3,NA, 5, NA, 8)
 y <- as.vector(na.omit(z)) # Omit N.A
@@ -28,7 +31,7 @@ col_na <- function(y){
   return(sum(is.na(y)))
 }
 
-na_count <- sapply(x, FUN=col_na)
+na_count <- sapply(x, FUN=col_na) # sapply : apply a function over a List or Vector
 # sapply: 컬럼을 하나하나 잘라서 input
 na_count
 
@@ -45,7 +48,7 @@ head(y)
 # 결측값을 적당한 값으로 추정하는 방법
 # install.packages("mice")
 library(mice)
-md.pattern(x) # show NA value pattern
+md.pattern(x) # missing data pattern : Diaply missing (NA) value pattern
 
 # estimate NA value
 result <- mice(x, m=5, maxit = 50,

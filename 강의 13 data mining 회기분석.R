@@ -17,9 +17,11 @@ compare
 # show line
 plot(dist~speed, data=cars)
 abline(coef(model))
+abline(h=40, v=15) # add straight line of h(horizontal), v(vertical)
+# help("abline") # Add straight line to a plot
 
 # multi linear regression
-install.packages("car")
+# install.packages("car")
 library(car)
 head(Prestige)
 
@@ -36,7 +38,14 @@ summary(mod1)
 # Auto select x variable
 library(MASS)
 newdata2 <- Prestige[, c(1:5)]
-mod2 <- lm(income ~ education + prestige + women + census, data = newdata2)
+mod2 <- lm(income ~ education + prestige + women, data = newdata2)
+summary(mod2)
+# prediction
+mod2$coefficients
+head(newdata2)
+mod2$coefficients %*% (c(1, 13.11, 68.8, 11.16))# actual incom = 12,351, pred = 11,231
+mod2$coefficients %*% (c(1, 11.42, 56.8, 9.11)) # actual income = 8865, pred = 9339
+
 step <- stepAIC(mod2, direction = "both")
 
 mod3 <- lm(income ~ prestige + women, data=newdata2)
