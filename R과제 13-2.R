@@ -5,9 +5,23 @@ library(mlbench)
 library(MASS)
 data("BostonHousing")
 str(BostonHousing)
+head(BostonHousing)
 plot(BostonHousing, pch=16, col='blue', main='Boston Housing')
 
 
 # multivariate linear regression
-mod1 <- lm(medv ~ ., data = BostonHousing)
-step <- stepAIC(mod1, direction = "both")
+# 처음에는 모든 변수 사용하여 선형회기 모델식의 parameter 구함
+mod_1 <- lm(medv ~ ., data = BostonHousing)
+# Akaike information criteria (AIC) 이용하여 최소값이 나오는 독립변수 조합을 구함
+step <- stepAIC(mod_1, direction = "both")
+# AIC로 구한 독립변수만 사용하여 선형회기 모델식 만들어 parameter 새로 구함
+mod_2 <- lm(medv ~ crim + zn + chas + nox + rm + dis + rad + tax + ptratio + 
+              b + lstat, data = BostonHousing )
+# summary(mod_1)
+summary(mod_2)
+
+# 2. 임의 데이터에 대한  medv 값 예측
+# parameter ?
+# coefficients(mod_2)
+imsi <- c(1, 0.00632, 18,0, 0.538, 6.575, 4.0900, 1, 296, 15.3,396.90, 4.98); imsi
+pred_medv <- sum(imsi * coefficients(mod_2));pred_medv

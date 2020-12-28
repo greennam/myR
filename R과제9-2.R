@@ -9,6 +9,9 @@ df <- data.frame(name = gc$구청명,
 cen.lon <- as.numeric(mean(gc$LON))
 cen.lat <- as.numeric(mean(gc$LAT))
 cen <- c(cen.lon, cen.lat)
+
+register_google(key = 'AIzaSyDhEDE1TNVNPWmRjgTClt9RM5tAjydGWtc')
+
 map <- get_googlemap("seoul",
                      maptype ="roadmap",
                      zoom = 11,

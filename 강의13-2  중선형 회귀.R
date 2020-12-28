@@ -18,7 +18,25 @@ map_dbl(iris[, 1:4], mean)
 library(dplyr)
 
 library(MASS)
-library(car)
-newdata2 <- Prestige[,c(1:5)]
-Pres
 
+# install car library
+library(car)
+head(Prestige)
+str(Prestige)
+newdata1 <- Prestige[,c(1:4)]
+plot(newdata2, pch=16, col="blue", 
+     main="Matrix scatterplot")
+# help("pairs")
+# pairs(newdata2)
+mod1 <- lm(income ~., data=newdata2)
+summary(mod1)
+
+# Select variable automatically
+newdata2 <- Prestige[,c(1:5)]
+# 초기 모델 만듬
+mod2 <- lm(income ~., data=newdata2)
+# 초기 모델 이용하여, step 으로 불필요한 요소 제거함
+step <- stepAIC(mod2, direction = "both")
+# 산출된 최적의 독립변수로 모델을 만듬
+mod3 <- lm(income ~women+prestige, data=newdata2)
+summary(mod3)
