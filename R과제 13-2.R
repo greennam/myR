@@ -17,6 +17,9 @@ step <- stepAIC(mod_1, direction = "both")
 # AIC로 구한 독립변수만 사용하여 선형회기 모델식 만들어 parameter 새로 구함
 mod_2 <- lm(medv ~ crim + zn + chas + nox + rm + dis + rad + tax + ptratio + 
               b + lstat, data = BostonHousing )
+
+# 위 식과 같은 내용(삭제할 독립변수 앞에 - 붙임): mod_2 <- lm(medv ~ . -indus -age, data = BostonHousing )
+
 # summary(mod_1)
 summary(mod_2)
 

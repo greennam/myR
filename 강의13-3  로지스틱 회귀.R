@@ -26,7 +26,7 @@ pred
 
 test <- iris[,1:4]
 pred <- predict(mod3, test);pred
-pred <- round(pred,0) # 반올림림
+pred <- round(pred,0) # 반올림
 
 # 예측값과 정답 비교. 맞으면 True, 틀리면 False
 pred == as.integer(iris[,5])

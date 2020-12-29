@@ -9,11 +9,11 @@ rm(list = ls())
 st <- data.frame(state.x77)
 str(st)
 
-md <- lm(formula = Murder ~ Illiteracy, data = trn)
+md <- lm(formula = Murder ~ Illiteracy, data = st)
 summary(md)
 
 # 회귀식 도출
-# Murder  = 2.786 + 3.863*Illiteracy
+# Murder  = 2.3968 + 4.2575*Illiteracy
 
 
 
@@ -21,8 +21,8 @@ summary(md)
 
 Illiteracy = c(0.5, 1.0, 1.5)
 
-for (i in 1:length(x)) {
-  Murder  = 2.786 + 3.863*Illiteracy
+for (i in 1:length(Illiteracy)) {
+  Murder  = 2.3968 + 4.2575*Illiteracy
   cat('Illiteracy =', Illiteracy[i], '|', 'Murder =', Murder[i], '\n')
 }
 
