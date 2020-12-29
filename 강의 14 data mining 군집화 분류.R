@@ -19,6 +19,9 @@ cl # show result
 plot(x, col=cl$cluster)
 points(cl$centers, col=1:2, pch=8, cex=2)
 
+cl2 <- kmeans(x, 5, nstart = 25)
+plot(x, col=cl2$cluster)
+points(cl2$centers, col=1:2, pch=8, cex=2)
 
 # 분류 classification
 # 정확도 높은 모델을 만드는것이 목표임
