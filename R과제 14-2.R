@@ -7,9 +7,10 @@
 require(graphics)
 
 # create 2-dimensional example
-x <- iris[,1:4]
-cl <- kmeans(x, 3)
-cl # show result
+x1 <- iris[,1:4]
+ccl <- kmeans(x1, 3);ccl # show result
 
-plot(x, col=cl$cluster)
-points(cl$centers, col=1:2, pch=8, cex=2)
+plot(x, col=ccl$cluster)
+
+
+points(cluster$centers, col=1:2, pch=8, cex=2)

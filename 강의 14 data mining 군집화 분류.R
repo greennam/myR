@@ -33,6 +33,24 @@ points(cl2$centers, col=1:2, pch=8, cex=2)
 # knn(train, test, cl, k=1, l=0,
 #      prob=FALSE, use.all=TRUE)
 
+require("class")
+tr.idx <- sample(1:nrow(iris), 0.7*nrow(iris))
+ds.tr <- iris[tr.idx, 1:4]
+ds.test <- iris[-tr.idx, 1:4]
+#cl.tr <- iris[tr.idx, 5]
+cl.tr <- factor(iris[tr.idx, 5])
+cl.test <- factor(iris[-tr.idx, 5])
+pred <- knn(ds.tr, ds.test, cl.tr, k=3, prob = T)
+accuracy <- mean(pred == cl.test);accuracy 
+
+# how to predic, show prediction status
+table(pred, cl.test) # 대각선외 나머지는 예측 오류임
+#cl.test
+#pred         setosa versicolor virginica
+#setosa         14          0         0
+#versicolor      0          9         1
+#virginica       0          2        19
+
 # k-fold cross validation
 require("class")
 

@@ -63,19 +63,18 @@ library(class)
 ds <- wdbc[,-1]
 str(ds)
 
-cl <- as.factor(ds$M)
+cl <- as.factor(ds$V2)
 ds.sclae <- scale(ds[,-1])
 head(ds.sclae)
 
 # (2) 홀수번째 instance는 training data 로, 짝수번째 instance는 test data 로 이용한다.
 # K = 3,5,7 로 하여 accuracy 를 비교한다.
 
-idx <- as.integer(rownames(ds[1:ncol(ds) %% 2 != 0,] ))
+idx <- as.integer(rownames(ds[1:nrow(ds) %% 2 != 0,] ))
 trn_x <- ds.sclae[idx, ]
 trn_cl <- cl[idx]
 tst_x <- ds.sclae[-idx, ]
 tst_cl <- cl[-idx]
-
 
 
 md.knn <- knn(train = trn_x, test = tst_x, cl = trn_cl, k = 3)
