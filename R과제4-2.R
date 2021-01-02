@@ -1,6 +1,7 @@
 head(infert)
 
-#1. infert 데이터셋의 education 컬럼 값을 잘라내어 edu 에 저장
+#1. infert 데이터셋의 education 컬럼 값을 잘라내어 
+# edu 에 저장
 edu <- infert[,"education"]
 edu
 

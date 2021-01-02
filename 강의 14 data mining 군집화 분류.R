@@ -51,8 +51,28 @@ table(pred, cl.test) # 대각선외 나머지는 예측 오류임
 #versicolor      0          9         1
 #virginica       0          2        19
 
+#-----------------------------
 # k-fold cross validation
 require("class")
+
+# get fold no. for each rows
+group.1 <- cut(seq(1,50), breaks = 5, labels = F)
+group.2 <- cut(seq(51,100), breaks = 5, labels = F)
+group.3 <- cut(seq(101,150), breaks = 5, labels = F)
+fold <- c(group.1, group.2, group.3)
+
+acc <- c() # accuracy for each fold
+for (i in 1:5){
+  ds.tr <- iris[fold != i, 1:4]
+  ds.ts <- iris[fold == i, 1:4]
+  cl.tr <- factor(iris[fold != i, 5])
+  cl.ts <- factor(iris[fold == i, 5])
+  pred <- knn(ds.tr, ds.ts, cl.tr, k= 3)
+  acc[i] <- mean(pred == cl.ts)
+}
+acc
+mean(acc)
+#-------------------------------
 
 iris[order(iris$Sepal.Length),]
 sort(iris[,"Sepal.Length"])
