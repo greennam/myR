@@ -3,7 +3,7 @@
 library(ggmap)
 library(ggplot2)
 
-register_google(key = "AIzaSyDhEDE1TNVNPWmRjgTClt9RM5tAjydGWtc")
+register_google(key = "  ")
 
 df <- head(quakes, 100)
 cent <- c(mean(df$long), mean(df$lat))
